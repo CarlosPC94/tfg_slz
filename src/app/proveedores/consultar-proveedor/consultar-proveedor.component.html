@@ -1,0 +1,31 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        {{proveedor.Nombre}}
+        <ion-button fill="clear" color="danger"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>                
+        <ion-button fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button> 
+        <ion-button fill="clear" (click)="pedido()" ><ion-icon name="cart-outline"></ion-icon></ion-button>  
+        
+      </ion-card-title>
+      <div class="linea"></div>
+      <ion-card-content>
+        <ion-card-subtitle>
+          Datos de contacto:
+        </ion-card-subtitle>
+        <h6><ion-icon name="mail-outline"></ion-icon> {{proveedor.Email}}</h6>
+        <h6><ion-icon name="call-outline"></ion-icon> {{proveedor.Movil}}</h6>
+        <h6><ion-icon name="location-outline"></ion-icon> {{proveedor.Ciudad}}, {{proveedor.Direccion}}</h6>
+
+        <div class="container">
+          <ion-card-subtitle>
+            Productos Ofertados:
+          </ion-card-subtitle>
+          <h6><ion-icon name="filter-outline"></ion-icon>{{proveedor.Categoria}}</h6>
+        </div>
+      </ion-card-content> 
+    </ion-card-header> 
+  </ion-card>
+</ion-content>

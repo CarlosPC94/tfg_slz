@@ -1,0 +1,42 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Proveedor</ion-card-subtitle>
+      <ion-button fill="clear"><ion-icon class="boton" color="danger" name="close-circle-outline"></ion-icon></ion-button>
+      <ion-button fill="clear"><ion-icon class="boton" name="document-outline"></ion-icon></ion-button>
+      <ion-card-title>{{pedido.Nombre}}</ion-card-title>
+      <ion-card-subtitle>Fecha de pedido:</ion-card-subtitle>
+      <h4>{{pedido.fecha}}</h4>
+      <ion-card-subtitle>Estado del Pedido: </ion-card-subtitle>
+      <div class="half">
+        <h4 *ngIf="pedido.Entregado == false" id="danger"> Por entregar </h4>
+        <h4 *ngIf="pedido.Entregado == true"> Entregado</h4>
+        <ion-button fill="clear" ><ion-icon id="boton-entregar"  color="success" name="checkmark-circle-outline"></ion-icon></ion-button>
+      </div>     
+    </ion-card-header>
+    <ion-card-header class="bar-stable">
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+        <h1>Detalles del Pedido:</h1>
+    </ion-card-header>
+    <ion-card-content>
+        <div class="row header">
+          <div class="col" id="table-header">Nombre Producto</div>
+          <div class="col" id="table-header">Cantidad</div>
+          <div class="col" id="table-header">Precio</div>
+        </div>
+        <div class="row" *ngFor="let producto of productosPedido">
+          <div class="col">{{producto.Nombre}}</div>
+          <div class="col">{{producto.Cantidad}}</div>
+          <div class="col">{{producto.Precio}} €</div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">Importe Total:</div>
+          <div class="col">{{pedido.Total}}€</div>
+        </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

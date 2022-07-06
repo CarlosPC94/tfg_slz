@@ -1,0 +1,109 @@
+ion-fab-button{
+    margin-top: 100px;
+    --ion-color-primary: #b3702e;
+}
+
+#agregar{
+    float: right;
+}
+
+#sinProductos {
+    margin-top: 50px;
+    text-align: center;
+}
+
+ion-button{
+    --ion-color-primary: #b3702e;
+    display: inline-block;
+
+}
+
+ion-item {
+    text-align: center;
+    font-family: roboto-thin;
+    color: #b3702e;
+}
+
+ion-card{
+    font-family: roboto;
+    height: 350px;
+}
+
+ion-card-header{
+    
+}
+
+ion-card-subtitle{
+    text-align: center;
+}
+
+#descripcion {
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 15px;
+}
+
+#subtitulo{
+    width: cover;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.linea {
+    border-top: 1px solid rgb(141, 141, 141);
+    height: 2px;
+    width: 120px;
+    padding: 0;
+    margin: 20px auto 0 auto;
+}
+
+#card-grid{
+    margin-top: -20px;
+    margin-left: 15px;
+}
+
+#buy-button{
+    margin-top: -5px;
+    float: right;
+}
+
+ion-content{
+    --background: linear-gradient(197deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 13.5%, rgb(215, 206, 191) 33.33%, rgb(222, 190, 145) 100%) !important;
+}
+
+img{
+    height: 150px;
+    width: cover;
+    margin-bottom: 15px;
+}
+
+ion-card-content{
+    margin: 10px;
+}
+
+ion-card-header{
+    margin: -20px;
+    text-align: center;
+}
+
+ion-icon{
+    margin-bottom: 17px;
+}
+
+ion-select{
+    width: 130px;
+}
+
+ion-textarea{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+  

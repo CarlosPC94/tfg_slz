@@ -1,0 +1,28 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-list>
+    <ion-list-header text-center>
+      <ion-item>
+        <ion-button fill="clear">Por Entregar</ion-button>
+        <ion-button>Entregados</ion-button>
+        <ion-select placeholder="Proveedor"></ion-select>
+      </ion-item>
+    </ion-list-header>
+<!--     <ion-list-header>
+      <ion-select placeholder="Proveedor"></ion-select>
+      <ion-label>Precio min.</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-list-header> -->
+
+    <ion-item *ngFor="let pedido of pedidos; let i = index" (click)="consultarPedido(pedido, i)">
+      <div class="container">
+        <h4>Proveedor: {{pedido.Nombre}}</h4><ion-icon name="checkmark-circle-outline"></ion-icon>
+        <h6>Fecha de pedido: {{pedido.fecha}}</h6>
+        <ion-card-subtitle>Importe: {{pedido.Total}}€</ion-card-subtitle>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

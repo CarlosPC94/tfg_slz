@@ -1,0 +1,58 @@
+ion-list-header{
+    
+}
+
+h4{
+    font-family: roboto-thin;
+    color: #b3702e;
+}
+
+h6 {
+    font-family: roboto-thin;
+}
+
+p{
+    font-family: roboto-thin;
+}
+
+.cart {
+    float: right;
+}
+
+ion-icon{
+   margin-right: 10px;
+   color: #b3702e;
+}
+
+ion-button{
+    margin: 1rem;
+    --ion-color-primary: #bd7732;
+    font-family: roboto-thin;
+    --border-radius: 15px;
+}
+
+ion-searchbar {
+    --ion-color-primary: #b5b5b557;
+
+}
+
+ion-item {
+    margin-right: 15px;
+}
+
+.container{
+    width: 100%;
+}
+
+ion-select{
+    width: 130px;
+    font-family: roboto-thin;
+    font-size: small;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+app-custom-header{
+    border: none !important;
+}

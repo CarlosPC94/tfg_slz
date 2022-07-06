@@ -1,0 +1,22 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-list>
+    <ion-list-header text-center>
+      <ion-searchbar></ion-searchbar>
+    </ion-list-header>
+    <ion-item *ngFor="let empleado of empleados; let i = index" (click)="consultarEmpleado(empleado, i)">
+      <ion-card-header>
+        <img src="{{empleado.Foto}}">
+      </ion-card-header>
+      <div class="container">
+        <h4>{{empleado.Apellidos}}, {{empleado.Nombre}}</h4>
+        <h6><ion-icon name="id-card-outline"></ion-icon> {{empleado.DNI}}</h6>
+        <h6><ion-icon name="mail-outline"></ion-icon> {{empleado.Email}}</h6>
+        <h6><ion-icon name="call-outline"></ion-icon> {{empleado.Movil}}</h6>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

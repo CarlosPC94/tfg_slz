@@ -1,0 +1,25 @@
+<ion-content>
+  <img src="../../assets/logo cuadrado copia.png"> 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Welcome!</ion-card-title>
+    </ion-card-header>
+    <div class="input-group">
+      <ion-item>
+        <ion-icon name="person" class="icon-login"></ion-icon>
+        <ion-input  id="email" type="email" placeholder="Introduce tu email ..."  [(ngModel)]="usuario.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-input type="password" placeholder="Introduce tu contraseña ..."  [(ngModel)]="usuario.password"></ion-input>
+      </ion-item>
+    </div>
+    <ion-button type="submit" id="login" (click)="login()" expand="block">Log in</ion-button>
+
+    <ion-label class="normal-label">No tienes cuenta ? </ion-label>
+    <ion-button id="signin" type="button" expand="block" color="primary" fill="outline" href="/register" routerLinkActive="active">Sign in up!</ion-button>
+    <ion-label>_______ O inicia rapidamente con _______</ion-label>
+    <br>
+    <ion-button class="login-with-google-btn" fill="clear" (click)="loginWithGoogle()" ></ion-button>
+ </ion-card>
+</ion-content>

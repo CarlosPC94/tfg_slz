@@ -1,0 +1,59 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Nuevo Producto de {{proveedor.Nombre}}:</ion-card-title>
+  </ion-card-header>
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Nombre:</ion-label>
+            <ion-input type="text" placeholder="Nombre ..." [(ngModel)]="materia.Nombre"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>Descripción:</ion-label>
+          <ion-textarea type="text" placeholder="Introduce la Descripción del Producto ..." [(ngModel)]="materia.Descripcion"></ion-textarea>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Precio:</ion-label>
+            <ion-input type="number" placeholder="0" [(ngModel)]="materia.Precio"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Categoria:</ion-label>
+            <ion-select type="text" placeholder="Selecciona"  [(ngModel)]="materia.Categoria">
+              <ion-select-option value="Bebidas Alcohólicas">Bebidas Alcoholicas</ion-select-option>
+              <ion-select-option value="Resfrescos">Refrescos</ion-select-option>
+              <ion-select-option value="Bollería">Bolleria</ion-select-option>
+              <ion-select-option value="Dulce">Dulce</ion-select-option>
+              <ion-select-option value="Salado">Salado</ion-select-option>
+              <ion-select-option value="Primas">Primas</ion-select-option>
+            </ion-select>
+            <ion-select-option value="Bebidas">Bebidas</ion-select-option>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col><ion-label>Imagen:</ion-label>
+        <ion-input type="file" (change)="capturarImagen($event)" ></ion-input>
+        </ion-col>
+        <ion-col>
+          <img src="{{previsualizacion}}" *ngIf="previsualizacion" >
+          </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col>
+        <ion-button fill="outline" (click)="crearProducto()">Añadir Producto</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button fill="clear" color="danger">Cancelar</ion-button>
+          </ion-col>
+      </ion-row>
+      </ion-grid>
+          
+    </div>
+  </ion-card>
+</ion-content>

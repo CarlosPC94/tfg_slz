@@ -1,0 +1,68 @@
+<ion-content>
+
+  <img id="logo" src="../../assets/logo cuadrado copia.png"> 
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Nice to Meet You</ion-card-title>
+  </ion-card-header>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Nombre:</ion-label>
+            <ion-input type="text" placeholder="Nombre ..." [(ngModel)]="usuario.nombre" ></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Apellidos:</ion-label>
+            <ion-input type="text" placeholder="Apellidos ..." [(ngModel)]="usuario.apellidos"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>Email:</ion-label>
+          <ion-input type="email" placeholder="Introduce el Email del trabajador ..." [(ngModel)]="usuario.email" ></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Contraseña:</ion-label>
+            <ion-input type="password" placeholder="Contraseña ..."  [(ngModel)]="usuario.password"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Repita la contraseña:</ion-label>
+            <ion-input type="password" placeholder="Contraseña ..."></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>DNI:</ion-label>
+          <ion-input type="text" placeholder="Introduce el Dni del trabajador ..."></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Ciudad:</ion-label>
+            <ion-input type="text" placeholder="Ciudad ..."></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Dirección:</ion-label>
+            <ion-input type="text" placeholder="Dirección ..."></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col class="fileUpload btn btn-primary">
+          <ion-label>Imagen de Perfil:</ion-label>
+          <ion-icon class="icono-imagen" name="camera-outline"></ion-icon>
+          <input type="file" (change)="cargarImagen($event)" class="upload">
+        </ion-col>
+        <ion-col>
+          <img src="{{previsualizacion}}" *ngIf="previsualizacion" id="previsualizacion" >
+          </ion-col>
+      </ion-row> 
+      </ion-grid>
+      <div class="container">
+        <ion-button expand="block" (click)="SignIn()" >Sign In</ion-button>
+        <label>¿Ya tienes cuenta?</label>
+        <ion-button fill="outline" expand="block" (click)="goLogin()" >Log In</ion-button>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>

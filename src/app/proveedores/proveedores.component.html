@@ -1,0 +1,22 @@
+<ion-content padding>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-list>
+    <ion-list-header><ion-searchbar color="primary"></ion-searchbar><ion-select placeholder="Categoría" ></ion-select> </ion-list-header>
+
+    <ion-item *ngFor="let proveedor of proveedores" (click)="verProveedores(proveedor)">
+      <div class="container">
+        <h4>{{proveedor.Nombre}}</h4><ion-icon class="cart" name="cart-outline"></ion-icon>
+        <h6><ion-icon name="mail-outline"></ion-icon>{{proveedor.Email}}</h6>
+        <p><ion-icon name="call-outline"></ion-icon>{{proveedor.Movil}}</p>
+        <p><ion-icon name="filter-circle-outline"></ion-icon>
+          {{proveedor.Categoria}}</p>
+        
+      </div>
+      
+
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

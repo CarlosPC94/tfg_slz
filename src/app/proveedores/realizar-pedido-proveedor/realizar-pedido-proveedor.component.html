@@ -1,0 +1,49 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-item>
+    <ion-title>{{proveedor.Nombre}}</ion-title>
+  </ion-item>
+  <ion-item>
+    <ion-select placeholder="Categoría"></ion-select>
+    <ion-searchbar></ion-searchbar>
+  </ion-item>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{cartItemCount | async}}</div>
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-card id="sinProductos" *ngIf="productos.length == 0" text-center>
+    <ion-card-header>
+    <ion-card-subtitle>Este proveedor aún no tiene ningún producto asociado.</ion-card-subtitle>
+    <ion-button>Añadir Producto</ion-button>
+    </ion-card-header>
+  </ion-card>
+  <ion-grid>
+    <!-- <ion-card-title>HOLA</ion-card-title> -->
+    <ion-row>
+      <ion-col col-2 *ngFor="let producto of productos">
+        <ion-card> 
+          <ion-card-header>
+            <img src="{{producto.Foto}}" />
+            <ion-card-subtitle id="subtitulo">{{producto.Nombre}}</ion-card-subtitle>
+            <div class="linea"></div>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-textarea>{{producto.Descripcion}}</ion-textarea>
+            <ion-row>
+              <ion-col><p>{{producto.Precio}} €</p></ion-col>
+              
+            <ion-col><ion-button fill="clear" id="buy-button" (click)="addToCart(producto)"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
+            </ion-row>
+            
+          </ion-card-content>
+              
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

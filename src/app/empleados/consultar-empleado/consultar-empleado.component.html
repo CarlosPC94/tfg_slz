@@ -1,0 +1,94 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-item>
+    <ion-card-header>
+      <img src="{{empleado.Foto}}">
+    </ion-card-header>
+    <div class="container">
+      <ion-card-title>{{empleado.Apellidos}}, {{empleado.Nombre}}</ion-card-title>
+      <h6><ion-icon name="id-card-outline"></ion-icon> {{empleado.DNI}}</h6>
+      <h6><ion-icon name="mail-outline"></ion-icon> {{empleado.Email}}</h6>
+      <h6><ion-icon name="call-outline"></ion-icon> {{empleado.Movil}}</h6>
+      <ion-button fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+      <ion-button fill="clear"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>
+    </div>
+  </ion-item>
+  <ion-card>
+    <ion-card-title>Horario:</ion-card-title>
+    <div class="linea"></div>
+    <div class="container">
+      <ion-grid>
+        <ion-row id="day">
+          <ion-col>          
+          </ion-col>
+          <ion-col>
+            Lunes
+          </ion-col>
+          <ion-col>
+            Martes
+          </ion-col>
+          <ion-col>
+            Miercoles
+          </ion-col>
+          <ion-col>
+            Jueves
+          </ion-col>
+          <ion-col>
+            Vieres
+          </ion-col>
+          <ion-col>
+            Sábado
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col id="day">
+            Entrada:
+          </ion-col>
+          <ion-col>
+            9:00
+          </ion-col>
+          <ion-col>
+            10:00
+          </ion-col>
+          <ion-col>
+            9:00
+          </ion-col>
+          <ion-col>
+            10:00
+          </ion-col>
+          <ion-col>
+            9:00
+          </ion-col>
+          <ion-col>
+            10:00
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col id="day">
+            Salida:
+          </ion-col>
+          <ion-col>
+            15:00
+          </ion-col>
+          <ion-col>
+            16:00
+          </ion-col>
+          <ion-col>
+            15:00
+          </ion-col>
+          <ion-col>
+            16:00
+          </ion-col>
+          <ion-col>
+            15:00
+          </ion-col>
+          <ion-col>
+            16:00
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-button fill="clear" id="boton-horario"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+  </ion-card>
+</ion-content>

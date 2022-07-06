@@ -1,0 +1,38 @@
+ion-card-title{
+    font-family: roboto-thin;
+    color: #bd7732;
+}
+
+ion-item{
+    margin-right: 20px;
+    display: inline-block;
+}
+
+ion-label{
+    margin-top: 10px;
+    margin-right: 10px;
+    float: left;
+    color: #bd7732;
+}
+
+ion-button{
+    --ion-color-primary: #bd7732;
+}
+
+img{
+    width: 150px;
+    border-radius: 15px;
+}
+
+div {
+    width: 100%;
+    margin: 20px;
+}
+
+ion-content {
+    --background: linear-gradient(197deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 13.5%, rgb(255, 255, 255) 33.33%, rgb(193, 160, 112) 100%) !important;
+}
+
+ion-select{
+    width: 120px;
+}

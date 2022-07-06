@@ -1,0 +1,67 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Registra un nuevo Proveedor:</ion-card-title>
+  </ion-card-header>
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Nombre:</ion-label>
+            <ion-input type="text" placeholder="Nombre ..." [(ngModel)]="proveedor.Nombre"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>Email:</ion-label>
+          <ion-input type="text" placeholder="Introduce el Email del proveedor ..." [(ngModel)]="proveedor.Email"></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col><ion-label>Tlf::</ion-label>
+          <ion-input type="text" placeholder="Introduce el movil del trabajador ..." [(ngModel)]="proveedor.Movil"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label>Categoría:</ion-label>
+          <ion-select type="text" placeholder="Selecciona" [(ngModel)]="proveedor.Categoria">
+            <ion-select-option value="Bebidas">Bebidas</ion-select-option>
+            <ion-select-option value="Cafés e Infusiones">Cafés e Infusiones</ion-select-option>
+            <ion-select-option value="Cárnicos">Cárnicos</ion-select-option>
+            <ion-select-option value="Congelados">Congelados</ion-select-option>
+            <ion-select-option value="Conservas">Conservas</ion-select-option>
+            <ion-select-option value="Embalajes">Embalajes</ion-select-option>
+            <ion-select-option value="Especias">Especias</ion-select-option>
+            <ion-select-option value="Helados">Helados</ion-select-option>
+            <ion-select-option value="Materias Primas">Materias Primas</ion-select-option>
+            <ion-select-option value="Lácteos">Lácteos</ion-select-option>
+            <ion-select-option value="Limpieza">Limpieza</ion-select-option>
+            <ion-select-option value="Snacks">Snacks</ion-select-option>
+            <ion-select-option value="Varios">Varios</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Dirección:</ion-label>
+            <ion-input type="text" placeholder="Dirección ..." [(ngModel)]="proveedor.Direccion"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Ciudad:</ion-label>
+            <ion-input type="text" placeholder="Ciudad ..." [(ngModel)]="proveedor.Ciudad"></ion-input>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col>
+        <ion-button fill="outline" (click)="crearProveedor()" >Registrar Proveedor</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button fill="clear" color="danger">Cancelar</ion-button>
+          </ion-col>
+      </ion-row>
+      </ion-grid>
+          
+    </div>
+  </ion-card>
+</ion-content>

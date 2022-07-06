@@ -1,0 +1,73 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Registra un nuevo trabajador:</ion-card-title>
+  </ion-card-header>
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label>Nombre:</ion-label>
+            <ion-input type="text" placeholder="Nombre ..." [(ngModel)]="this.empleado.Nombre"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Apellidos:</ion-label>
+            <ion-input type="text" placeholder="Apellidos ..." [(ngModel)]="empleado.Apellidos"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>Email:</ion-label>
+          <ion-input type="text" placeholder="Introduce el Email del trabajador ..." [(ngModel)]="empleado.Email"></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Contraseña:</ion-label>
+            <ion-input type="text" placeholder="Contraseña ..." [(ngModel)]="empleado.Password"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Repita la contraseña:</ion-label>
+            <ion-input type="text" placeholder="Contraseña ..."></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col><ion-label>DNI:</ion-label>
+          <ion-input type="text" placeholder="Introduce el Dni del trabajador ..." [(ngModel)]="empleado.DNI"></ion-input>
+        </ion-col>
+        <ion-col><ion-label>Tlf::</ion-label>
+          <ion-input type="text" placeholder="Introduce el movil del trabajador ..." [(ngModel)]="empleado.Movil"></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Ciudad:</ion-label>
+            <ion-input type="text" placeholder="Ciudad ..." [(ngModel)]="empleado.Ciudad"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Dirección:</ion-label>
+            <ion-input type="text" placeholder="Dirección ..." [(ngModel)]="empleado.Direccion"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col><ion-label>Imagen de Perfil:</ion-label>
+        <ion-input type="file" (change)="capturarImagen($event)" ></ion-input>
+        </ion-col>
+        <ion-col>
+          <img src="{{previsualizacion}}" *ngIf="previsualizacion" >
+          </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col>
+        <ion-button fill="outline" (click)="crearEmpleado()">Registrar Empleado</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button fill="clear" color="danger">Cancelar</ion-button>
+          </ion-col>
+      </ion-row>
+      </ion-grid>
+          
+    </div>
+  </ion-card>
+</ion-content>

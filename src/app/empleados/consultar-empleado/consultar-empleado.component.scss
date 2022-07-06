@@ -1,0 +1,58 @@
+ion-card-title{
+    text-align: center;
+    display: block;
+}
+
+
+img {
+    width: 200px;
+    border-radius: 15px;
+}
+
+ion-card-title {
+    color: #bd7732;
+}
+
+ion-item {
+    font-family: roboto-thin;
+    margin-right: 15px;
+}
+
+ion-icon{
+    color: #bd7732; 
+}
+
+ion-row{
+    margin-top: 15px;
+}
+
+ion-grid{
+    margin-bottom: 20px;
+}
+
+.linea {
+    border-top: 1px solid rgb(141, 141, 141);
+    height: 2px;
+    max-width: 300px;
+    padding: 0;
+    margin: 20px auto 0 auto;
+}
+
+#day{
+    color: #bd7732;
+}
+
+#boton-horario{
+    float: right;
+}
+
+ion-card{
+    padding-top: 20px;
+    padding-left: 15px;
+    margin-top: 10vh;
+}
+
+ion-content {
+    /* --background: url('https://img.freepik.com/free-vector/continuous-one-line-drawing-cup-coffee-minimalist-design-minimalism-style_201915-27.jpg?w=2000') 0 0/100% 100% no-repeat; */
+    --background: linear-gradient(197deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 13.5%, rgb(255, 255, 255) 33.33%, rgb(255, 216, 161) 100%) !important;
+}
