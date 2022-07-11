@@ -23,6 +23,11 @@
         </ion-col>
         </ion-row>
         <ion-row>
+          <ion-col><ion-label>Teléfono de contacto:</ion-label>
+          <ion-input type="email" placeholder="Introduce un teléfono de contacto ..." [(ngModel)]="usuario.movil" ></ion-input>
+        </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col>
             <ion-label>Contraseña:</ion-label>
             <ion-input type="password" placeholder="Contraseña ..."  [(ngModel)]="usuario.password"></ion-input>
@@ -30,21 +35,6 @@
           <ion-col>
             <ion-label>Repita la contraseña:</ion-label>
             <ion-input type="password" placeholder="Contraseña ..."></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col><ion-label>DNI:</ion-label>
-          <ion-input type="text" placeholder="Introduce el Dni del trabajador ..."></ion-input>
-        </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-label>Ciudad:</ion-label>
-            <ion-input type="text" placeholder="Ciudad ..."></ion-input>
-          </ion-col>
-          <ion-col>
-            <ion-label>Dirección:</ion-label>
-            <ion-input type="text" placeholder="Dirección ..."></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -56,6 +46,12 @@
         <ion-col>
           <img src="{{previsualizacion}}" *ngIf="previsualizacion" id="previsualizacion" >
           </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-item>
+          <ion-label>Acepto los términos y condiciones.</ion-label>
+          <ion-checkbox color="primary" slot="start"></ion-checkbox>
+        </ion-item>
       </ion-row> 
       </ion-grid>
       <div class="container">

@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Proveedores } from './../models/proveedores';
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
@@ -21,14 +22,17 @@ export class ProveedoresComponent implements OnInit {
   proveedores: Proveedores[] = [];
   user: any;
   nombrePag: string;
+  aux: Proveedores[] = [];
 
   ngOnInit() {
+    console.log(this.auth.getUserLogged());
     this.nombrePag = "Proveedores"
     this.auth.comprobarPermisos();
     this.user = JSON.parse(localStorage.getItem("User"));
     console.log(this.user)
     this.firestore.getCollection<Proveedores>("Proveedores").subscribe(res => {
       this.proveedores = res;
+      this.aux = res;
       console.log(res)
     })
   }
@@ -52,4 +56,27 @@ export class ProveedoresComponent implements OnInit {
     this.router.navigateByUrl("/realizarPedidoProveedor");
   }
 
+  buscarProveedor(event: any){
+    this.proveedores = [];
+    this.aux.forEach( element => {
+      if(element.Nombre.includes(event.target.value))
+        this.proveedores.push(element)
+      }  
+    )
+    if (event.target.value == ""){
+      this.proveedores = this.aux;
+    }    
+  }
+
+  categoriaProveedor(event){
+    this.proveedores = [];
+    if(event.target.value == "Todo")
+      this.proveedores = this.aux;
+    else{
+      this.aux.forEach( element => {
+      if(element.Categoria == event.target.value)
+        this.proveedores.push(element);
+    })
+    } 
+  }
 }

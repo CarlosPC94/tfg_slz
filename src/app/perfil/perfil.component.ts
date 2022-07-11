@@ -1,3 +1,4 @@
+import { FirestoreService } from './../services/firestore.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,12 +11,15 @@ export class PerfilComponent implements OnInit {
   user: any;
   nombrePag: string;
 
-  constructor() { }
+  constructor(private db: FirestoreService) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("User"));
-    console.log(this.user)
-    this.nombrePag = "Perfil"
+    this.nombrePag = "Perfil";
+    this.db.getDocById("Users", this.user.email).subscribe(res => {
+      this.user = res;
+      console.log(this.user)
+    })
   }
 
 }

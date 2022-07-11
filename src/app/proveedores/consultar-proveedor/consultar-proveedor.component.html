@@ -5,7 +5,7 @@
     <ion-card-header>
       <ion-card-title>
         {{proveedor.Nombre}}
-        <ion-button fill="clear" color="danger"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>                
+        <ion-button fill="clear" color="danger" (click)="borrarProveedor()"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>                
         <ion-button fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button> 
         <ion-button fill="clear" (click)="pedido()" ><ion-icon name="cart-outline"></ion-icon></ion-button>  
         

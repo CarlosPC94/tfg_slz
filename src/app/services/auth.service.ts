@@ -17,14 +17,18 @@ export class AuthService {
   user = {
     nombre : '',
     email : '',
-    image: ''
+    image: '',
+    movil: '',
+    apellidos: ''
   }
 
-  async register(email: string, password: string, nick: string, image: any){
+  async register(email: string, password: string, nick: string, movil: string, apellidos: string, image: any){
     try {
       await this.afauth.createUserWithEmailAndPassword(email,password).then( res => {
         this.user.nombre = nick;
         this.user.email = email;
+        this.user.movil = movil;
+        this.user.apellidos = apellidos;
         var ruta = "users/" + email;
         this.db.subirImagen(ruta, image).then(respuesta => {
           this.user.image = respuesta;
@@ -33,6 +37,7 @@ export class AuthService {
           displayName: nick,
           photoURL: respuesta
         })
+        this.afauth
         this.interactionservice.presentToast("Registro Completado Satisfactoriamente!")
         })       
       })
@@ -82,5 +87,13 @@ export class AuthService {
       else
         localStorage.setItem("User", JSON.stringify(res));
     })
+  }
+
+  modificarUsuario(email: string, password: string, movil: string){
+    var usuario = firebase.auth().currentUser;
+    var aux = usuario;
+    usuario.updateEmail(email);
+    usuario.updatePassword(password);
+    this.db.updateDoc("Users", aux.email, aux.email, movil)
   }
 }

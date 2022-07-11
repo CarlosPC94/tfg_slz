@@ -14,7 +14,9 @@ export class RegisterComponent implements OnInit {
     email : '',
     password : '',
     nombre: '',
-    photo: ''
+    photo: '',
+    movil: '',
+    apellidos: ''
   }
 
   image: any;
@@ -25,8 +27,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   SignIn(){
-    const { email, password, nombre, photo } = this.usuario;
-    this.authService.register(email, password, nombre, photo)
+    const { email, password, nombre, photo, movil, apellidos } = this.usuario;
+    this.authService.register(email, password, nombre, movil, apellidos, photo)
   }
 
   cargarImagen(event: any){

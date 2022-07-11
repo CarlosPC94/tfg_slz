@@ -28,13 +28,14 @@ import { RealizarPedidoProveedorComponent } from './proveedores/realizar-pedido-
 import { CartModalPage } from './pages/cart-modal/cart-modal.page';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { ConsultarPedidoComponent } from './pedidos/consultar-pedido/consultar-pedido.component';
+import { ClientesComponent } from './clientes/clientes.component';
 
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, ProveedoresComponent, MenuNormalComponent, PerfilComponent,
    CustomHeaderComponent, RealizarPedidoProveedorComponent, CartModalPage, PedidosComponent, ConsultarPedidoComponent,
    ConsultarProveedorComponent, EmpleadosComponent, RegistrarEmpleadoComponent, ConsultarEmpleadoComponent, CrearProveedorComponent,
-   CrearMateriaComponent],
+   CrearMateriaComponent, ClientesComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,

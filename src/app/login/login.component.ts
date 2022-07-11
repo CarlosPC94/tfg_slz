@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
       email : '',
       password: '',
       Nombre : '', 
-      photo: ''
+      image: ''
   }
   constructor(private route:Router, private authService: AuthService, private db: FirestoreService) { }
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       var aux = this.authService.getUserLogged().subscribe(res => {
         this.usuario.email = res.email;
         this.usuario.Nombre = res.displayName;
-        this.usuario.photo = res.photoURL;
+        this.usuario.image = res.photoURL;
         this.db.createDoc(this.usuario, "Users", this.usuario.email)
       })    
     } catch (err) {

@@ -1,13 +1,19 @@
 <ion-content>
-<!--   <app-menu-normal></app-menu-normal>
+  <app-menu-normal></app-menu-normal>
   <app-custom-header [varName]="nombrePag"></app-custom-header>
 
-  <div class="card-body">
-    <img id="profile-image" src="{{user.photoURL}}">
-    <div class="user-meta ion-text-center">
-      <h3 class="playername">{{user.displayName}}</h3>
-      <h5 class="country">{{user.email}}</h5>
-      <ion-button>Añadir/Modificar Descripción</ion-button>
-    </div>
-  </div> -->
+  <ion-card>
+    <ion-card-header>
+      <img id="profile-image" src="{{user.image}}">
+    </ion-card-header>
+    <div class="linea"></div>
+    <ion-card-title>
+      {{user.nombre}} {{user.apellidos}}
+    </ion-card-title>
+    <ion-card-content>
+      <h6><ion-icon name="mail-outline"></ion-icon> {{user.email}}</h6>
+      <h6><ion-icon name="call-outline"></ion-icon> {{user.movil}}</h6>
+    </ion-card-content>
+    
+  </ion-card>
 </ion-content>

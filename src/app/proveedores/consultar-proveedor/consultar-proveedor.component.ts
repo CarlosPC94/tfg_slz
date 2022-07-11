@@ -1,3 +1,5 @@
+import { InteractionService } from './../../services/interaction.service';
+import { FirestoreService } from './../../services/firestore.service';
 import { Router } from '@angular/router';
 import { Proveedores } from './../../models/proveedores';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +14,7 @@ export class ConsultarProveedorComponent implements OnInit {
   nombrePag: string;
   proveedor: Proveedores;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private db: FirestoreService, private toast: InteractionService) { }
 
   ngOnInit() {
     this.nombrePag = "Consultar Proveedor";
@@ -23,4 +25,9 @@ export class ConsultarProveedorComponent implements OnInit {
     this.router.navigateByUrl("/realizarPedidoProveedor")
   }
 
+  async borrarProveedor(){
+    await this.db.deleteDoc("Proveedores", this.proveedor.Email);
+    this.toast.presentToast("El proveedor ha sido eliminado correctamente");
+    this.router.navigateByUrl("/proveedores");
+  }
 }

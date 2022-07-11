@@ -1,10 +1,31 @@
-.card-body{
-    margin: 2rem;
+ion-card{
+    text-align: center;
+    
 }
 
-.card-body img{
-    height: 15rem;
-    width: 15rem;
-    border-radius: 10rem;
-    margin-left: 2.5rem;
+img{
+    border-radius: 50%;
+    height: 300px;
 }
+
+ion-card-title{
+    margin-top: 20px;
+    color: #bd7732; 
+}
+
+.linea {
+    border-top: 1px solid rgb(141, 141, 141);
+    height: 2px;
+    width: 400px;
+    padding: 0;
+    margin: 20px auto 0 auto;
+}
+
+ion-content{
+    --background: linear-gradient(197deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 13.5%, rgb(215, 206, 191) 33.33%, rgb(222, 190, 145) 100%) !important;
+}
+
+ion-icon{
+    color: #bd7732; 
+}
+

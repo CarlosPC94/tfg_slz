@@ -1,3 +1,4 @@
+import { InteractionService } from './interaction.service';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -14,7 +15,7 @@ export class FirestoreService {
   
   storageRef = firebase.app().storage().ref();
 
-  constructor(private database: AngularFirestore) { }
+  constructor(private database: AngularFirestore, private toast: InteractionService) { }
 
   createDoc(data: any, path: string, id: string) {
     const collection = this.database.collection(path);
@@ -66,8 +67,24 @@ export class FirestoreService {
     })
   }
 
-  updateDoc(colections: string, id: string, valoraciones: number, valoracion: number, round: number){
-    this.database.collection(colections).doc(id).update({Valoracion: valoracion, Valoraciones: valoraciones, round: round})
+  updateDoc(colections: string, id: string, email: string, movil: string){
+    this.database.collection(colections).doc(id).update({email: email, movil: movil})
+  }
+
+  deleteDoc(colections: string, id: string){
+    this.database.collection(colections).doc(id).delete();
+  }
+
+  updateDayStart(colections: string, id: string, entrada: string){
+    this.database.collection(colections).doc(id).update({Entrada: entrada}).then(() => {
+      this.toast.presentToast("Horario de entrada de "+ id + " modificado satisfactoriamente.")
+    })
+  }
+
+  updateDayEnd(colections: string, id: string, salida: string){
+    this.database.collection(colections).doc(id).update({Salida: salida}).then(() => {
+      this.toast.presentToast("Horario de salida de "+ id + " modificado satisfactoriamente.")
+    })
   }
 
 
