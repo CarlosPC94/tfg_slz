@@ -5,6 +5,9 @@
     <ion-list-header text-center>
       <ion-searchbar></ion-searchbar>
     </ion-list-header>
+    <ion-card-title>
+      Empleados
+    </ion-card-title>
     <ion-item *ngFor="let empleado of empleados; let i = index" (click)="consultarEmpleado(empleado, i)">
       <ion-card-header>
         <img src="{{empleado.Foto}}">
