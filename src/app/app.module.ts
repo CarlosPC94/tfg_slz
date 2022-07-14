@@ -1,3 +1,5 @@
+import { CustomFooterComponent } from './custom-footer/custom-footer.component';
+import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
 import { CrearMateriaComponent } from './proveedores/realizar-pedido-proveedor/crear-materia/crear-materia.component';
 import { CrearProveedorComponent } from './proveedores/crear-proveedor/crear-proveedor.component';
 import { ConsultarEmpleadoComponent } from './empleados/consultar-empleado/consultar-empleado.component';
@@ -29,13 +31,14 @@ import { CartModalPage } from './pages/cart-modal/cart-modal.page';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { ConsultarPedidoComponent } from './pedidos/consultar-pedido/consultar-pedido.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { RealizarPedidoClienteComponent } from './clientes/realizar-pedido-cliente/realizar-pedido-cliente.component';
 
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, ProveedoresComponent, MenuNormalComponent, PerfilComponent,
    CustomHeaderComponent, RealizarPedidoProveedorComponent, CartModalPage, PedidosComponent, ConsultarPedidoComponent,
    ConsultarProveedorComponent, EmpleadosComponent, RegistrarEmpleadoComponent, ConsultarEmpleadoComponent, CrearProveedorComponent,
-   CrearMateriaComponent, ClientesComponent],
+   CrearMateriaComponent, ClientesComponent, RealizarPedidoClienteComponent, PedidosClienteComponent, CustomFooterComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,

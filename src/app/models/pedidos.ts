@@ -3,5 +3,6 @@ export interface Pedidos {
     fecha: string
     Entregado: boolean
     Total: number
+    id: string
 }
     

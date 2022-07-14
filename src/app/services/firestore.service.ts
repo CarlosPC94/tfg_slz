@@ -72,7 +72,9 @@ export class FirestoreService {
   }
 
   deleteDoc(colections: string, id: string){
-    this.database.collection(colections).doc(id).delete();
+    this.database.collection(colections).doc(id).delete().then(() => {
+      this.toast.presentToast("Eliminado satisfactoriamente.")
+    })
   }
 
   updateDayStart(colections: string, id: string, entrada: string){
@@ -84,6 +86,14 @@ export class FirestoreService {
   updateDayEnd(colections: string, id: string, salida: string){
     this.database.collection(colections).doc(id).update({Salida: salida}).then(() => {
       this.toast.presentToast("Horario de salida de "+ id + " modificado satisfactoriamente.")
+    })
+  }
+
+  entregarPedido(colections: string, id: string){
+    this.database.collection(colections).doc(id).update({Entregado: true}).then(() => {
+      this.toast.presentToast("El pedido ha sido marcado como 'Entregado'");
+    }).catch(() => {
+      this.toast.presentToast("Ha ocurrido un error al marcar el pedido.")
     })
   }
 

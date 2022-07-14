@@ -4,20 +4,18 @@
   <ion-list>
     <ion-list-header text-center>
       <ion-item>
-        <ion-button fill="clear">Por Entregar</ion-button>
-        <ion-button>Entregados</ion-button>
-        <ion-select placeholder="Proveedor"></ion-select>
+        <ion-button (click)="todos()" >Todos</ion-button>
+        <ion-button (click)="pedidosPorEntregar()" >Por Entregar</ion-button>
+        <ion-button (click)="pedidosEntregados()" >Entregados</ion-button>
+        <ion-select placeholder="Proveedor" (ionChange)="categoria($event)">
+          <ion-select-option value="Todos" >Todos</ion-select-option>
+          <ion-select-option *ngFor="let item of proveedores" value="{{item.Nombre}}" >{{item.Nombre}}</ion-select-option>
+        </ion-select>
       </ion-item>
     </ion-list-header>
-<!--     <ion-list-header>
-      <ion-select placeholder="Proveedor"></ion-select>
-      <ion-label>Precio min.</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-list-header> -->
-
     <ion-item *ngFor="let pedido of pedidos; let i = index" (click)="consultarPedido(pedido, i)">
       <div class="container">
-        <h4>Proveedor: {{pedido.Nombre}}</h4><ion-icon name="checkmark-circle-outline"></ion-icon>
+        <h4>Proveedor: {{pedido.Nombre}}</h4><ion-button id="entregar" fill="clear" (click)="marcarEntregado(pedido);$event.stopPropagation();" ><ion-icon name="checkmark-circle-outline"></ion-icon></ion-button>
         <h6>Fecha de pedido: {{pedido.fecha}}</h6>
         <ion-card-subtitle>Importe: {{pedido.Total}}€</ion-card-subtitle>
       </div>

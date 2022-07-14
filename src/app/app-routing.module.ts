@@ -1,3 +1,4 @@
+import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
 import { CrearMateriaComponent } from './proveedores/realizar-pedido-proveedor/crear-materia/crear-materia.component';
 import { CrearProveedorComponent } from './proveedores/crear-proveedor/crear-proveedor.component';
 import { ConsultarEmpleadoComponent } from './empleados/consultar-empleado/consultar-empleado.component';
@@ -14,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RealizarPedidoProveedorComponent } from './proveedores/realizar-pedido-proveedor/realizar-pedido-proveedor.component';
 import { ClientesComponent } from './clientes/clientes.component';
+import { RealizarPedidoClienteComponent } from './clientes/realizar-pedido-cliente/realizar-pedido-cliente.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
   {
     path: 'clientes',
     component: ClientesComponent
+  },
+  {
+    path: 'pedidoCliente',
+    component: RealizarPedidoClienteComponent
+  },
+  {
+    path: 'pedidosCliente',
+    component: PedidosClienteComponent
   }
 ];
 

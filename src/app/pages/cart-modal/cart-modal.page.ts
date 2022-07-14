@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { InteractionService } from './../../services/interaction.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { ModalController } from '@ionic/angular';
 import { CartService } from './../../services/cart.service';
@@ -14,10 +16,12 @@ export class CartModalPage implements OnInit {
 
   cart: CartProducts[] = [];
 
-  constructor(private cartService: CartService, private modalController: ModalController, private db: FirestoreService, private datePipe: DatePipe) { }
+  constructor(private cartService: CartService, private modalController: ModalController, private db: FirestoreService,
+     private datePipe: DatePipe, private toast: InteractionService, private router: Router) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
+    console.log(document.location.href)
   }
 
   decreaseCartItem(product) {
@@ -42,20 +46,46 @@ export class CartModalPage implements OnInit {
   
   async checkout(){
     let id = await this.db.createId();
-    let proveedor = JSON.parse(localStorage.getItem("proveedor"));
-    var date = new Date();
-    let data = {
-      Nombre: proveedor.Nombre,
-      Entregado: false,
-      fecha: this.datePipe.transform(date, 'dd-MM-yyyy'),
-      Total: this.getTotal()
-    }
-    this.db.createDoc(data, "Pedidos", id).then(() => {
-      for(var i = 0; i < this.cart.length; i++){
-        this.db.createDoc(this.cart[i], "Pedidos/"+ id + "/Productos", this.db.createId())
+    if(document.location.href.includes("pedidoCliente") == true){
+      let cliente = JSON.parse(localStorage.getItem("cliente"));
+      var date = new Date();
+      let data = {
+        Nombre: cliente.Nombre,
+        Entregado: false,
+        fecha: this.datePipe.transform(date, 'dd-MM-yyyy'),
+        Total: this.getTotal(),
+        id: id
       }
-      this.cart = []
-    })
+      this.db.createDoc(data, "PedidosCliente", id).then(() => {
+        for(var i = 0; i < this.cart.length; i++){
+          this.db.createDoc(this.cart[i], "PedidosCliente/"+ id + "/Productos", this.db.createId())
+        }
+        this.cart = []
+        this.toast.presentToast("Pedido para el cliente " + cliente.Nombre + " realizado correctamente.");
+        this.close();
+        this.router.navigateByUrl("/clientes")
+      })
+    } else {
+      let proveedor = JSON.parse(localStorage.getItem("proveedor"));
+      var date = new Date();
+      let data = {
+        Nombre: proveedor.Nombre,
+        Entregado: false,
+        fecha: this.datePipe.transform(date, 'dd-MM-yyyy'),
+        Total: this.getTotal(),
+        id: id
+      }
+      this.db.createDoc(data, "Pedidos", id).then(() => {
+        for(var i = 0; i < this.cart.length; i++){
+          this.db.createDoc(this.cart[i], "Pedidos/"+ id + "/Productos", this.db.createId())
+        }
+        this.cart = []
+        this.toast.presentToast("Pedido al proveedor " + proveedor.Nombre + " realizado correctamente.");
+        this.close();
+        this.router.navigateByUrl("/pedidos")
+      })
+    }
+    
   }
 
 }

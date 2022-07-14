@@ -5,8 +5,8 @@
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>Proveedor</ion-card-subtitle>
-      <ion-button fill="clear"><ion-icon class="boton" color="danger" name="close-circle-outline"></ion-icon></ion-button>
-      <ion-button fill="clear"><ion-icon class="boton" name="document-outline"></ion-icon></ion-button>
+      <ion-button fill="clear" (click)="borrarPedido()" ><ion-icon class="boton" color="danger" name="close-circle-outline"></ion-icon></ion-button>
+      <ion-button fill="clear" (click)="crearPDF()"><ion-icon class="boton" name="document-outline"></ion-icon></ion-button>
       <ion-card-title>{{pedido.Nombre}}</ion-card-title>
       <ion-card-subtitle>Fecha de pedido:</ion-card-subtitle>
       <h4>{{pedido.fecha}}</h4>
@@ -14,29 +14,36 @@
       <div class="half">
         <h4 *ngIf="pedido.Entregado == false" id="danger"> Por entregar </h4>
         <h4 *ngIf="pedido.Entregado == true"> Entregado</h4>
-        <ion-button fill="clear" ><ion-icon id="boton-entregar"  color="success" name="checkmark-circle-outline"></ion-icon></ion-button>
+        <ion-button  *ngIf="pedido.Entregado == false" fill="clear" ><ion-icon id="boton-entregar"  color="success" name="checkmark-circle-outline"></ion-icon></ion-button>
       </div>     
     </ion-card-header>
-    <ion-card-header class="bar-stable">
-    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <div class="style-sheet-modern">
+      <style scooped></style>
+      <ion-card-header>
         <h1>Detalles del Pedido:</h1>
     </ion-card-header>
     <ion-card-content>
-        <div class="row header">
-          <div class="col" id="table-header">Nombre Producto</div>
-          <div class="col" id="table-header">Cantidad</div>
-          <div class="col" id="table-header">Precio</div>
-        </div>
-        <div class="row" *ngFor="let producto of productosPedido">
-          <div class="col">{{producto.Nombre}}</div>
-          <div class="col">{{producto.Cantidad}}</div>
-          <div class="col">{{producto.Precio}} €</div>
-        </div>
-        <div class="row">
-          <div class="col"></div>
-          <div class="col">Importe Total:</div>
-          <div class="col">{{pedido.Total}}€</div>
-        </div>
+      <ion-grid>
+        <ion-row>
+            <ion-col class="col" id="table-header">Nombre Producto</ion-col>
+            <ion-col class="col" id="table-header">Cantidad</ion-col>
+            <ion-col class="col" id="table-header">Precio</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let producto of productosPedido">
+            <ion-col class="col">{{producto.Nombre}}</ion-col>
+            <ion-col class="col">{{producto.Cantidad}}</ion-col>
+            <ion-col class="col">{{producto.Precio}} €</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="col"></ion-col>
+            <ion-col class="col">Importe Total:</ion-col>
+            <ion-col class="col">{{pedido.Total}}€</ion-col>
+        </ion-row>
+        
+        
+      </ion-grid>
     </ion-card-content>
+    </div>
+    
   </ion-card>
 </ion-content>

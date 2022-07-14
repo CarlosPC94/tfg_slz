@@ -32,6 +32,13 @@ export class ProveedoresComponent implements OnInit {
     console.log(this.user)
     this.firestore.getCollection<Proveedores>("Proveedores").subscribe(res => {
       this.proveedores = res;
+      localStorage.setItem("proveedores", JSON.stringify(res.sort((a,b) => {
+        if (a.Nombre > b.Nombre)
+          return 1
+        if (a.Nombre < b.Nombre)
+          return -1
+        return 0;
+      } )));
       this.aux = res;
       console.log(res)
     })

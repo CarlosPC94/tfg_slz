@@ -30,6 +30,7 @@
     "@ionic/angular": "^6.0.0",
     "firebase": "^9.8.1",
     "ngx-star-rating": "^2.1.0",
+    "pdfmake": "^0.2.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

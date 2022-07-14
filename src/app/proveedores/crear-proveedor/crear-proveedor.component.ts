@@ -33,4 +33,8 @@ export class CrearProveedorComponent implements OnInit {
     })
   }
 
+  cancelar(){
+    this.router.navigateByUrl("/proveedores")
+  }
+
 }

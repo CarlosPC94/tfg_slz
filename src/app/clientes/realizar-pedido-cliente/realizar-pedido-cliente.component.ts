@@ -1,38 +1,35 @@
-import { CartProducts } from './../../models/cartProducts';
-import { CartModalPage } from './../../pages/cart-modal/cart-modal.page';
-import { BehaviorSubject } from 'rxjs';
-import { CartService } from './../../services/cart.service';
-import { Primas } from './../../models/primas';
 import { FirestoreService } from './../../services/firestore.service';
-import { Proveedores } from './../../models/proveedores';
+import { Primas } from './../../models/primas';
+import { Clientes } from './../../models/clientes';
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 import { ModalController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
+import { CartModalPage } from 'src/app/pages/cart-modal/cart-modal.page';
 
 @Component({
-  selector: 'app-realizar-pedido-proveedor',
-  templateUrl: './realizar-pedido-proveedor.component.html',
-  styleUrls: ['./realizar-pedido-proveedor.component.scss'],
+  selector: 'app-realizar-pedido-cliente',
+  templateUrl: './realizar-pedido-cliente.component.html',
+  styleUrls: ['./realizar-pedido-cliente.component.scss'],
 })
-export class RealizarPedidoProveedorComponent implements OnInit {
+export class RealizarPedidoClienteComponent implements OnInit {
 
+
+  cliente: Clientes;
   nombrePag: string;
-  proveedor: Proveedores;
   productos: Primas[] = [];
   aux: Primas[] = [];
   cart = [];
   cartItemCount: BehaviorSubject<number>;
 
-  constructor(private db: FirestoreService, private cartService: CartService, private modalController: ModalController) {
-    
-   }
+  constructor(private db: FirestoreService, private cartService: CartService, private modalController: ModalController) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
-    this.proveedor = JSON.parse(localStorage.getItem("proveedor"));
-    this.nombrePag = "Realizar Pedido Proveedor";
-    console.log(this.proveedor.Email)
-    this.db.getCollection<Primas>("Proveedores/"+this.proveedor.Email+"/Productos").subscribe(res => {
+    this.cliente = JSON.parse(localStorage.getItem("cliente"));
+    this.nombrePag = "Pedido Cliente";
+    await this.db.getCollection<Primas>("Productos").subscribe(res => {
       this.productos = res;
       this.aux = res;
     })
@@ -76,4 +73,5 @@ export class RealizarPedidoProveedorComponent implements OnInit {
       })
     }
   }
+
 }

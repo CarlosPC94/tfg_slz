@@ -1,6 +1,7 @@
 <ion-content padding>
   <app-menu-normal></app-menu-normal>
   <app-custom-header [varName]="nombrePag"></app-custom-header>
+
   <ion-list>
     <ion-list-header><ion-searchbar color="primary" (ionChange)="buscarProveedor($event)"></ion-searchbar>
       <ion-select placeholder="Categoría" (ionChange)="categoriaProveedor($event)">
@@ -13,6 +14,9 @@
               <ion-select-option value="Cárnicas">Cárnicas</ion-select-option>
       </ion-select> 
     </ion-list-header>
+    <ion-card-title>
+      Proveedores
+    </ion-card-title>
 
     <ion-item *ngFor="let proveedor of proveedores" (click)="verProveedores(proveedor)">
       <div class="container">
@@ -27,5 +31,5 @@
     </ion-item>
 
   </ion-list>
-
+<app-custom-footer></app-custom-footer>
 </ion-content>
