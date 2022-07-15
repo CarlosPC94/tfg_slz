@@ -32,13 +32,15 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { ConsultarPedidoComponent } from './pedidos/consultar-pedido/consultar-pedido.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { RealizarPedidoClienteComponent } from './clientes/realizar-pedido-cliente/realizar-pedido-cliente.component';
+import { MateriaModalComponent } from './proveedores/realizar-pedido-proveedor/materia-modal/materia-modal.component';
 
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, ProveedoresComponent, MenuNormalComponent, PerfilComponent,
    CustomHeaderComponent, RealizarPedidoProveedorComponent, CartModalPage, PedidosComponent, ConsultarPedidoComponent,
    ConsultarProveedorComponent, EmpleadosComponent, RegistrarEmpleadoComponent, ConsultarEmpleadoComponent, CrearProveedorComponent,
-   CrearMateriaComponent, ClientesComponent, RealizarPedidoClienteComponent, PedidosClienteComponent, CustomFooterComponent],
+   CrearMateriaComponent, ClientesComponent, RealizarPedidoClienteComponent, PedidosClienteComponent, CustomFooterComponent,
+    MateriaModalComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,

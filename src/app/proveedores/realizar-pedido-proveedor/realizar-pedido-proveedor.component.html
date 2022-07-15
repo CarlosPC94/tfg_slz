@@ -35,8 +35,8 @@
   </ion-card>
   <ion-grid>
     <ion-row>
-      <ion-col col-2 *ngFor="let producto of productos">
-        <ion-card> 
+      <ion-col size="4" *ngFor="let producto of productos">
+        <ion-card (click)="abrirProducto(producto)" > 
           <ion-card-header>
             <img src="{{producto.Foto}}" />
             <ion-card-subtitle id="subtitulo">{{producto.Nombre}}</ion-card-subtitle>

@@ -7,6 +7,7 @@ import { FirestoreService } from './../../services/firestore.service';
 import { Proveedores } from './../../models/proveedores';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { MateriaModalComponent } from './materia-modal/materia-modal.component';
 
 @Component({
   selector: 'app-realizar-pedido-proveedor',
@@ -44,6 +45,15 @@ export class RealizarPedidoProveedorComponent implements OnInit {
       cssClass: 'cart-modal'
     })
     modal.present();  
+  }
+
+  async abrirProducto(producto: Primas){
+    localStorage.setItem("producto", JSON.stringify(producto));
+    let modal = await this.modalController.create({
+      component: MateriaModalComponent,
+      cssClass: 'materia-modal'
+    })
+    modal.present();
   }
 
   addToCart(product){
