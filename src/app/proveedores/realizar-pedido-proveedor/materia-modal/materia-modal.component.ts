@@ -19,4 +19,8 @@ export class MateriaModalComponent implements OnInit {
     this.producto = JSON.parse(localStorage.getItem("producto"));
   }
 
+  addToCart(product){
+    this.cartService.addProduct(product);
+  }
+
 }

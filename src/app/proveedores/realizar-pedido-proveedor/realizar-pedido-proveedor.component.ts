@@ -57,7 +57,6 @@ export class RealizarPedidoProveedorComponent implements OnInit {
   }
 
   addToCart(product){
-    console.log(product)
     this.cartService.addProduct(product);
   }
 

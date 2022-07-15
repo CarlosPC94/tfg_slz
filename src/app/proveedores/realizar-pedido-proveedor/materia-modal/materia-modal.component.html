@@ -1,23 +1,24 @@
 <ion-content>
   <ion-card>
-    <ion-card-title>{{producto.Nombre}}</ion-card-title>
+    <ion-card-title>{{producto.Nombre}} 
+    </ion-card-title><div class="container">
+              <ion-button fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+              <ion-button fill="clear" color="danger"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button> 
+            </div>
     <img src="{{producto.Foto}}">
     <ion-card-content>
+      <div class="linea"></div>
       <ion-grid>
         <ion-row>
-          <ion-label>{{producto.Descripcion}}</ion-label>
+          <ion-label id="descripcion">{{producto.Descripcion}}</ion-label>
         </ion-row>
         <ion-row>
-          <ion-col>
-            <ion-label>{{producto.Precio}} €</ion-label>
-          </ion-col>
-          <ion-col>
-            <ion-label>{{producto.Precio}} €</ion-label>
-          </ion-col>
+          <ion-col size="8">
+            
+          </ion-col>         
+          <ion-col size="4">{{producto.Precio}} €<ion-button fill="clear" id="buy-button" (click)="addToCart(producto)"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
         </ion-row>
       </ion-grid>
-      
-      <ion-label>{{producto.Precio}}</ion-label>
     </ion-card-content>
   </ion-card>
 </ion-content>

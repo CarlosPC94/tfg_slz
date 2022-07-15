@@ -46,7 +46,7 @@
             <ion-label>{{producto.Descripcion}}</ion-label>
             <ion-row id="columna-final">
               <ion-col size="10"><p>{{producto.Precio}} €</p></ion-col>         
-              <ion-col size="2"><ion-button fill="clear" id="buy-button" (click)="addToCart(producto)"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
+              <ion-col size="2"><ion-button fill="clear" id="buy-button" (click)="addToCart(producto);$event.stopPropagation();"><ion-icon name="cart-outline"></ion-icon></ion-button></ion-col>
             </ion-row>          
           </ion-card-content>
         </ion-card>
