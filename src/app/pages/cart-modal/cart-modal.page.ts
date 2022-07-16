@@ -15,6 +15,7 @@ import { DatePipe } from '@angular/common';
 export class CartModalPage implements OnInit {
 
   cart: CartProducts[] = [];
+  fecha: string;
 
   constructor(private cartService: CartService, private modalController: ModalController, private db: FirestoreService,
      private datePipe: DatePipe, private toast: InteractionService, private router: Router) { }
@@ -53,7 +54,8 @@ export class CartModalPage implements OnInit {
         Entregado: false,
         fecha: this.datePipe.transform(date, 'dd-MM-yyyy'),
         Total: this.getTotal(),
-        id: id
+        id: id,
+        Recogida: this.fecha
       }
       this.db.createDoc(data, "PedidosCliente", id).then(() => {
         for(var i = 0; i < this.cart.length; i++){
@@ -85,6 +87,14 @@ export class CartModalPage implements OnInit {
       })
     }
     
+  }
+
+  verFecha(event: any){
+    var fecha = event.target.value;
+    var year = fecha.slice(0, 4);
+    var month = fecha.slice(5, 7);
+    var day = fecha.slice(8, 10);
+    this.fecha = day + '-' + month + '-' + year;
   }
 
 }

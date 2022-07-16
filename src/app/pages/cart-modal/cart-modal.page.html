@@ -56,16 +56,15 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-    </ion-list>
-    <input matInput [matDatepicker]="picker">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    </ion-list> 
+    <div id="container">
+      <ion-label>Selecciona la fecha de recogida: </ion-label>
+      <input type="date" (change)="verFecha($event)">
+    </div>
     
- 
+    
     <ion-button expand="full" (click)="checkout()">
       Realizar Pedido
     </ion-button>
   </div>
- 
 </ion-content>
