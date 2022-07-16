@@ -1,0 +1,27 @@
+<ion-content>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Añadir Cliente:</ion-card-title>
+    </ion-card-header>
+    <div class="input-group">
+      <ion-item>
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-input  id="nombre" type="text" placeholder="Introduce el nombre del cliente..."  [(ngModel)]="user.Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-input  id="apellidos" type="text" placeholder="Introduce los apellidos..."  [(ngModel)]="user.Apellidos"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="mail" class="icon-login"></ion-icon>
+        <ion-input  id="email" type="email" placeholder="Introduce un email..."  [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="call-outline"></ion-icon>
+        <ion-input  id="movil" type="text" placeholder="Introduce un teléfono de contacto..."  [(ngModel)]="user.Movil"></ion-input>
+      </ion-item>
+    </div>
+    <ion-button type="submit" id="login" (click)="registrarCliente()" expand="block">Registrar</ion-button>
+ </ion-card>
+</ion-content>

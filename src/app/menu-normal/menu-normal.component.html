@@ -1,6 +1,6 @@
 <ion-menu side="start" menuId="first" contentId="main">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar translucent>
       <img src="../../assets/logo simple copia.png" >
     </ion-toolbar>
   </ion-header>
@@ -12,9 +12,10 @@
       <ion-item href="/pedidosCliente"><ion-icon name="cart-outline"></ion-icon> Pedidos Clientes </ion-item>
       <ion-item href="/empleados"><ion-icon name="id-card-outline"></ion-icon>Empleados</ion-item>
       <ion-item href="/perfil"><ion-icon name="person-circle-outline"></ion-icon> Perfil</ion-item>
-      <ion-item (click)="cerrarSesion()"><ion-icon name="log-out-outline"></ion-icon>Cerrar Sesión</ion-item>
     </ion-list>
+    
   </ion-content>
+  <ion-item id="cerrar" (click)="cerrarSesion()"><ion-icon name="log-out-outline"></ion-icon>Cerrar Sesión</ion-item>
 </ion-menu>
 
 <ion-router-outlet id="main"></ion-router-outlet>

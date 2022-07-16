@@ -41,3 +41,14 @@ ion-card-title{
     text-align: center;
     margin-top: 10px;
 }
+
+ion-modal {
+    
+    ion-content{
+        --padding-top: 25vh,
+        --padding-start: 20vh,
+        --padding-end: 20px;
+        --background: transparent,
+        height: 400px;
+    }
+}

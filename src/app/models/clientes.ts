@@ -4,6 +4,7 @@ export interface Clientes {
     Email: string
     Ciudad: string
     Direccion: string
-    baneado: boolean
+    Baneado: boolean
     image: string
+    Registrado: boolean
 }

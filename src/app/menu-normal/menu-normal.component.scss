@@ -1,5 +1,6 @@
 ion-icon{
     margin-right: 5px;
+    color: #bd7732;
 }
 
 img{
@@ -10,4 +11,14 @@ img{
 
 ion-toolbar{
    text-align: center; 
+}
+
+ion-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: roboto;
+}
+
+#cerrar {
+    bottom: 0px;
 }

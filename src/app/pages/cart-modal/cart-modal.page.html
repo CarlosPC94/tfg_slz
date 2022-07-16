@@ -57,6 +57,11 @@
         </ion-grid>
       </ion-item>
     </ion-list>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    
  
     <ion-button expand="full" (click)="checkout()">
       Realizar Pedido

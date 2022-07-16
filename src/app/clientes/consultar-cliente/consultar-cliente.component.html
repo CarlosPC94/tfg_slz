@@ -3,7 +3,8 @@
     <ion-grid>
     <img src="{{cliente.image}}">
     <ion-card-title>{{cliente.Nombre}} {{cliente.Apellidos}}</ion-card-title>
-    <ion-card-subtitle>Registrado</ion-card-subtitle>
+    <ion-card-subtitle *ngIf="cliente.Registrado == true">Registrado</ion-card-subtitle>
+    <ion-card-subtitle *ngIf="cliente.Registrado == false">No Registrado</ion-card-subtitle>
       <ion-card-content>
         <ion-row>
           <h3>Datos de contacto:</h3>
