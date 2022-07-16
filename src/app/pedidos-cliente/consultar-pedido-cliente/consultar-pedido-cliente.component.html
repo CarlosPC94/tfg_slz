@@ -4,10 +4,10 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Proveedor</ion-card-subtitle>
+      <ion-card-subtitle>Cliente</ion-card-subtitle>
       <ion-button fill="clear" (click)="borrarPedido()" ><ion-icon class="boton" color="danger" name="close-circle-outline"></ion-icon></ion-button>
       <ion-button fill="clear" (click)="enviarEmail()"><ion-icon class="boton" name="mail-outline"></ion-icon></ion-button>
-      <ion-button fill="clear" (click)="crearPDF()"><ion-icon class="boton" name="document-outline"></ion-icon></ion-button>  
+      <ion-button fill="clear" (click)="crearPDF()"><ion-icon class="boton" name="document-outline"></ion-icon></ion-button>
       <ion-card-title>{{pedido.Nombre}}</ion-card-title>
       <ion-card-subtitle>Fecha de pedido:</ion-card-subtitle>
       <h4>{{pedido.fecha}}</h4>

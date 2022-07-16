@@ -59,6 +59,10 @@ export class FirestoreService {
     return this.database.createId();
   }
 
+  enviarEmail(dd: any){
+    this.toast.presentToast("Email enviado correctamente!");
+  }
+
   getIds(colections: string, ids: string[]){
     this.database.collection(colections).get().subscribe(res => {
       res.forEach(doc => {

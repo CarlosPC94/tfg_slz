@@ -1,33 +1,31 @@
-import { FirestoreService } from 'src/app/services/firestore.service';
-import { CartProducts } from './../../models/cartProducts';
-import { Pedidos } from './../../models/pedidos';
 import { Component, OnInit } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import { CartProducts } from 'src/app/models/cartProducts';
+import { Pedidos } from 'src/app/models/pedidos';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
 
 @Component({
-  selector: 'app-consultar-pedido',
-  templateUrl: './consultar-pedido.component.html',
-  styleUrls: ['./consultar-pedido.component.scss'],
+  selector: 'app-consultar-pedido-cliente',
+  templateUrl: './consultar-pedido-cliente.component.html',
+  styleUrls: ['./consultar-pedido-cliente.component.scss'],
 })
-export class ConsultarPedidoComponent implements OnInit {
+export class ConsultarPedidoClienteComponent implements OnInit {
 
   nombrePag: string;
   pedido: Pedidos;
   productosPedido: CartProducts[] = [];
   dd: any;
   rows: any[] = [];
-
+  
   constructor(private db: FirestoreService, private router: Router, private alertController: AlertController) { }
 
   async ngOnInit() {
-    this.nombrePag = "Pedido"
-    this.pedido = JSON.parse(localStorage.getItem("pedido"));
-    await this.db.getCollection<CartProducts>("Pedidos/"+ this.pedido.id + "/Productos").subscribe((res) => {
+    this.nombrePag = "Pedido Cliente"
+    this.pedido = JSON.parse(localStorage.getItem("pedido-cliente"));
+    await this.db.getCollection<CartProducts>("PedidosCliente/"+ this.pedido.id + "/Productos").subscribe((res) => {
       console.log(res)
       this.productosPedido = res;
       this.rows.push([{text: 'Nombre del Producto', style: 'tableHeader', bold: true}, {text: 'Cantidad', style: 'tableHeader', bold: true}, {text: 'Precio', style: 'tableHeader', bold: true}])
@@ -48,7 +46,7 @@ export class ConsultarPedidoComponent implements OnInit {
           alignment: 'center'
         },
         {
-          text: 'Proveedor: ' + this.pedido.Nombre +'\n\n',
+          text: 'Cliente: ' + this.pedido.Nombre +'\n\n',
           style: 'header'
         },
         {
@@ -71,8 +69,7 @@ export class ConsultarPedidoComponent implements OnInit {
 
   crearPDF(){
     pdfMake.createPdf(this.dd).download(this.pedido.id);
-    pdfMake.createPdf(this.dd).open();
-    
+    pdfMake.createPdf(this.dd).open();  
   }
 
   enviarEmail(){

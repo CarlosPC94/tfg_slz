@@ -18,7 +18,7 @@
       <ion-input type="number"></ion-input>
     </ion-list-header> -->
 
-    <ion-item *ngFor="let pedido of pedidos; let i = index" (click)="consultarPedido(pedido, i)">
+    <ion-item *ngFor="let pedido of pedidos" (click)="consultarPedido(pedido)">
       <div class="container">
         <h4>Cliente: {{pedido.Nombre}}</h4><ion-icon name="checkmark-circle-outline"></ion-icon>
         <h6>Fecha de pedido: {{pedido.fecha}}</h6>

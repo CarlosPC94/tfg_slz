@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-card>
+    <ion-grid>
+    <img src="{{cliente.image}}">
+    <ion-card-title>{{cliente.Nombre}} {{cliente.Apellidos}}</ion-card-title>
+    <ion-card-subtitle>Registrado</ion-card-subtitle>
+      <ion-card-content>
+        <ion-row>
+          <h3>Datos de contacto:</h3>
+        </ion-row>   
+        <ion-row >
+          <ion-icon id="margin" name="mail-outline"></ion-icon> <h6> {{cliente.email}}</h6>
+        </ion-row>  
+        <ion-row >
+          <h6><ion-icon id="margin" name="call-outline"></ion-icon> {{cliente.Movil}}</h6>
+        </ion-row>      
+      </ion-card-content>
+    </ion-grid>
+    <div class="container">
+      <ion-button fill="clear">Ver pedidos</ion-button>
+      <ion-button fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+      <ion-button fill="clear"><ion-icon name="close-circle-outline" color="danger"></ion-icon></ion-button>
+      <ion-button fill="clear"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>
+    </div>
+  </ion-card>
+</ion-content>

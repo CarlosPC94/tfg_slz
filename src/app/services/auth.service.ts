@@ -15,20 +15,20 @@ export class AuthService {
   constructor( private afauth: AngularFireAuth, private interactionservice: InteractionService, private router:Router, private db: FirestoreService) { }
 
   user = {
-    nombre : '',
+    Nombre : '',
     email : '',
     image: '',
-    movil: '',
-    apellidos: ''
+    Movil: '',
+    Apellidos: ''
   }
 
   async register(email: string, password: string, nick: string, movil: string, apellidos: string, image: any){
     try {
       await this.afauth.createUserWithEmailAndPassword(email,password).then( res => {
-        this.user.nombre = nick;
+        this.user.Nombre = nick;
         this.user.email = email;
-        this.user.movil = movil;
-        this.user.apellidos = apellidos;
+        this.user.Movil = movil;
+        this.user.Apellidos = apellidos;
         var ruta = "users/" + email;
         this.db.subirImagen(ruta, image).then(respuesta => {
           this.user.image = respuesta;
@@ -38,7 +38,9 @@ export class AuthService {
           photoURL: respuesta
         })
         this.afauth
-        this.interactionservice.presentToast("Registro Completado Satisfactoriamente!")
+        this.interactionservice.presentToast("Registro Completado Satisfactoriamente!").then(() => {
+          this.router.navigateByUrl('/')
+        })
         })       
       })
     } catch (err) {

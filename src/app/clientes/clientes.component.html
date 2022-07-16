@@ -8,14 +8,14 @@
     <ion-card-title>
       Clientes
     </ion-card-title>
-    <ion-item *ngFor="let cliente of clientes; let i = index" (click)="consultarEmpleado(empleado, i)">
+    <ion-item *ngFor="let cliente of clientes; let i = index" (click)="consultarCliente(cliente)">
       <ion-card-header>
         <img src="{{cliente.image}}">
       </ion-card-header>
       <div class="container">
-        <h4>{{cliente.Nombre}}</h4> <ion-button (click)="realizarPedido(cliente);$event.stopPropagation();" class="cart" fill="clear"><ion-icon class="cart" name="cart-outline"></ion-icon></ion-button>
+        <h4>{{cliente.Nombre}} {{cliente.Apellidos}}</h4> <ion-button (click)="realizarPedido(cliente);$event.stopPropagation();" class="cart" fill="clear"><ion-icon class="cart" name="cart-outline"></ion-icon></ion-button>
         <h6><ion-icon name="mail-outline"></ion-icon> {{cliente.email}}</h6>
-        <h6><ion-icon name="call-outline"></ion-icon> {{cliente.movil}}</h6>
+        <h6><ion-icon name="call-outline"></ion-icon> {{cliente.Movil}}</h6>
       </div>
     </ion-item>
   </ion-list>
