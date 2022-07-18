@@ -1,0 +1,34 @@
+<ion-content>
+  <app-menu-normal></app-menu-normal>
+  <app-custom-header [varName]="nombrePag"></app-custom-header>
+  <ion-list>
+    <ion-list-header text-center>
+      <ion-searchbar></ion-searchbar>
+    </ion-list-header>
+    <ion-card-title>
+      Stock
+    </ion-card-title>
+    <ion-item *ngFor="let producto of productos">
+      <ion-card-header>
+        <img src="{{producto.Foto}}">
+      </ion-card-header>
+      <div class="container">
+        <h4>{{producto.Nombre}}</h4>
+        <ion-icon *ngIf="producto.Aviso < producto.Restante" color="success" name="notifications-circle-outline"></ion-icon>
+        <ion-icon *ngIf="producto.Aviso > producto.Restante" color="danger" name="notifications-circle-outline"></ion-icon>
+        <ion-button id="especiales" fill="clear"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>
+        <ion-button id="especiales" fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+        
+        <ion-label>Cantidad Restante:</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-column><ion-button fill="outline"><ion-icon name="remove-outline"></ion-icon></ion-button></ion-column>
+            <ion-column><ion-input type="text" placeholder="{{producto.Restante}}"></ion-input></ion-column>
+            <ion-column><ion-button fill="outline"><ion-icon name="add-outline"></ion-icon></ion-button></ion-column>
+          </ion-row>
+        </ion-grid>
+        
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

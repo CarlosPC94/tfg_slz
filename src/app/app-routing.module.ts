@@ -1,3 +1,4 @@
+import { StockComponent } from './stock/stock.component';
 import { ConsultarPedidoClienteComponent } from './pedidos-cliente/consultar-pedido-cliente/consultar-pedido-cliente.component';
 import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
 import { CrearMateriaComponent } from './proveedores/realizar-pedido-proveedor/crear-materia/crear-materia.component';
@@ -90,6 +91,10 @@ const routes: Routes = [
   {
     path: 'consultarPedidoCliente',
     component: ConsultarPedidoClienteComponent
+  },
+  {
+    path: 'stock',
+    component: StockComponent
   }
 ];
 

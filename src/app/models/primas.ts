@@ -5,4 +5,6 @@ export interface Primas {
     Cantidad: number
     Descripcion: string
     Categoria: string
+    Restante: number
+    Aviso: number
 }
