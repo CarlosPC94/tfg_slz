@@ -3,7 +3,7 @@
   <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-card>
   <ion-card-header>
-    <ion-card-title>Nuevo Producto de {{proveedor.Nombre}}:</ion-card-title>
+    <ion-card-title>Nuevo Producto:</ion-card-title>
   </ion-card-header>
     <div id="container">
       <ion-grid>
@@ -21,14 +21,12 @@
         <ion-row>
           <ion-col>
             <ion-label>Precio:</ion-label>
-            <ion-input type="number" placeholder="0" [(ngModel)]="materia.Precio"></ion-input>
+            <ion-input id="precio" type="number" placeholder="0" [(ngModel)]="materia.Precio"></ion-input>
           </ion-col>
           <ion-col>
             <ion-label>Categoria:</ion-label>
             <ion-select type="text" placeholder="Selecciona"  [(ngModel)]="materia.Categoria">
               <ion-select-option value="Bebidas Alcohólicas">Bebidas Alcoholicas</ion-select-option>
-              <ion-select-option value="Harinas">Harinas</ion-select-option>
-              <ion-select-option value="Cereales">Cereales</ion-select-option>
               <ion-select-option value="Resfrescos">Refrescos</ion-select-option>
               <ion-select-option value="Bollería">Bolleria</ion-select-option>
               <ion-select-option value="Dulce">Dulce</ion-select-option>
@@ -36,6 +34,16 @@
               <ion-select-option value="Primas">Primas</ion-select-option>
             </ion-select>
             <ion-select-option value="Bebidas">Bebidas</ion-select-option>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-label>Cantidad Inicial: </ion-label>
+            <ion-input id="precio" type="number" placeholder="0" [(ngModel)]="materia.Restante"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-label>Aviso Stock Necesario: </ion-label>
+            <ion-input id="precio" type="number" placeholder="0" [(ngModel)]="materia.Aviso"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>

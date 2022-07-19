@@ -3,7 +3,27 @@
   <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-list>
     <ion-list-header text-center>
-      <ion-searchbar></ion-searchbar>
+      <ion-item id="filtros">
+        <ion-select placeholder="Categoría" (ionChange)="categoria($event)">
+          <ion-select-option value="Todo">Todo</ion-select-option>
+          <ion-select-option value="Cereales">Cereales</ion-select-option>
+          <ion-select-option value="Harinas">Harinas</ion-select-option>
+          <ion-select-option value="Frutas">Frutas</ion-select-option>
+          <ion-select-option value="Verduras">Verduras</ion-select-option>
+          <ion-select-option value="Alcohol">Alcohol</ion-select-option>
+          <ion-select-option value="Carne">Carne</ion-select-option>
+          <ion-select-option value="Limpieza">Limpieza</ion-select-option>
+          <ion-select-option value="Aceites">Aceites</ion-select-option>
+          <ion-select-option value="Dulces ind.">Dulces ind.</ion-select-option>
+          <ion-select-option value="Lácteos">Lácteos</ion-select-option>
+        </ion-select>
+        <ion-select placeholder="Ordenar" (ionChange)="categoria($event)">
+          <ion-select-option value="Precio Ascendente">Precio Ascendente</ion-select-option>
+          <ion-select-option value="Precio Descendente">Precio Descendente</ion-select-option>
+          <ion-select-option value="Populares">Populares</ion-select-option>
+        </ion-select>
+        <ion-searchbar (ionChange)="buscar($event)"></ion-searchbar>
+      </ion-item>
     </ion-list-header>
     <ion-card-title>
       Stock
@@ -14,7 +34,7 @@
       </ion-card-header>
       <div class="container">
         <h4>{{producto.Nombre}}</h4>
-        <ion-icon *ngIf="producto.Aviso < producto.Restante" color="success" name="notifications-circle-outline"></ion-icon>
+        <ion-icon *ngIf="producto.Aviso <= producto.Restante" color="success" name="notifications-circle-outline"></ion-icon>
         <ion-icon *ngIf="producto.Aviso > producto.Restante" color="danger" name="notifications-circle-outline"></ion-icon>
         <ion-button id="especiales" fill="clear"><ion-icon name="trash-outline" color="danger"></ion-icon></ion-button>
         <ion-button id="especiales" fill="clear"><ion-icon name="pencil-outline"></ion-icon></ion-button>

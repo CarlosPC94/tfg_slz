@@ -1,5 +1,5 @@
 ion-list-header{
-    width: 350px;
+    width: 500px;
     margin: auto
 }
 
@@ -31,9 +31,24 @@ ion-icon{
     width: 100%;
 }
 
+#entregar{
+    float: right;
+}
+
 ion-card-title{
     color: #bd7732; 
     font-family: pacifico;
     text-align: center;
     margin-top: 10px;
+}
+
+ion-modal {
+    
+    ion-content{
+        --padding-top: 25vh,
+        --padding-start: 20vh,
+        --padding-end: 20px;
+        --background: transparent,
+        height: 400px;
+    }
 }

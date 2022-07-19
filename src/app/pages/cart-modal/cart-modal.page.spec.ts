@@ -1,3 +1,4 @@
+import { InteractionService } from './../../services/interaction.service';
 import { Proveedores } from './../../models/proveedores';
 import { CartProducts } from './../../models/cartProducts';
 /* import { CartService } from './../../services/cart.service'; */
@@ -11,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CartService } from 'src/app/services/cart.service';
 import { promise } from 'protractor';
+import { Router } from '@angular/router';
 
 describe('CartModalPage', () => {
   let component: CartModalPage;
@@ -39,7 +41,7 @@ describe('CartModalPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CartModalPage ],
-      providers: [ FirestoreService, DatePipe, ModalController, CartService],
+      providers: [ FirestoreService, DatePipe, ModalController, CartService, InteractionService],
       imports: [IonicModule.forRoot(), AngularFireModule.initializeApp(environment.firebaseConfig)]
     }).compileComponents();
 
@@ -83,7 +85,7 @@ describe('CartModalPage', () => {
 
   it('increase producto', () => {
     collaborator = new CartService();
-    sut = new CartModalPage(collaborator, new ModalController(undefined, undefined, undefined), new FirestoreService(undefined), new DatePipe(undefined));
+    sut = new CartModalPage(collaborator, new ModalController(undefined, undefined, undefined), new FirestoreService(undefined, undefined), new DatePipe(undefined), new InteractionService(undefined, undefined), new Router(undefined, undefined, undefined, undefined, undefined, undefined, undefined));
 
     var cart: CartProducts[] = [];
     var expected: CartProducts[] = [];
@@ -167,7 +169,10 @@ describe('CartModalPage', () => {
       Nombre: "Prueba",
       Categoria: "Prueba",
       Email: "Prueba@prueba.com",
-      Movil: "666555444"
+      Movil: "666555444",
+      Ciudad: '',
+      Direccion: '',
+      Web: ''
     }
 
     localStorage.setItem("proveedor", JSON.stringify(data));

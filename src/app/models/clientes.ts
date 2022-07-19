@@ -7,4 +7,6 @@ export interface Clientes {
     Baneado: boolean
     image: string
     Registrado: boolean
+    Tipo: string
+    Movil: string
 }

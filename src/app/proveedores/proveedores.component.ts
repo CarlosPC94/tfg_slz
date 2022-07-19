@@ -1,3 +1,4 @@
+import { ConsultarProveedorComponent } from './consultar-proveedor/consultar-proveedor.component';
 import { element } from 'protractor';
 import { Proveedores } from './../models/proveedores';
 import { Component, OnInit } from '@angular/core';
@@ -5,6 +6,7 @@ import { FirestoreService } from '../services/firestore.service';
 import { Temas } from '../models/temas';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-proveedores',
@@ -13,7 +15,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProveedoresComponent implements OnInit {
 
-  constructor(private firestore: FirestoreService, private router: Router, private auth: AuthService) {
+  constructor(private firestore: FirestoreService, private router: Router, private auth: AuthService, private modalController: ModalController) {
     if (this.auth.getUserLogged() == null)
       this.router.navigateByUrl("/login")
    }
@@ -44,7 +46,7 @@ export class ProveedoresComponent implements OnInit {
     })
   }
 
-  verProveedores(proveedores: Proveedores){
+  async verProveedores(proveedores: Proveedores){
 
     var aux = {
       Nombre : proveedores.Nombre,
@@ -52,10 +54,15 @@ export class ProveedoresComponent implements OnInit {
       Movil : proveedores.Movil,
       Email: proveedores.Email,
       Ciudad: proveedores.Ciudad,
-      Direccion: proveedores.Direccion
+      Direccion: proveedores.Direccion,
+      Web: proveedores.Web
     }
     localStorage.setItem("proveedor", JSON.stringify(aux));
-    this.router.navigateByUrl("/consultarProveedor")
+    let modal = await this.modalController.create({
+      component: ConsultarProveedorComponent,
+      cssClass: 'consultar-proveedor'
+    })
+    modal.present();
   }
 
   pedidoProveedor(proveedor: Proveedores){

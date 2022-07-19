@@ -1,6 +1,4 @@
 <ion-content>
-  <app-menu-normal></app-menu-normal>
-  <app-custom-header [varName]="nombrePag"></app-custom-header>
   <ion-card>
     <ion-card-header>
       <ion-card-title>
@@ -17,6 +15,7 @@
         </ion-card-subtitle>
         <h6><ion-icon name="mail-outline"></ion-icon> {{proveedor.Email}}</h6>
         <h6><ion-icon name="call-outline"></ion-icon> {{proveedor.Movil}}</h6>
+        <h6><a><ion-icon name="link-outline"></ion-icon> {{proveedor.Web}}</a></h6>
         <h6><ion-icon name="location-outline"></ion-icon> {{proveedor.Ciudad}}, {{proveedor.Direccion}}</h6>
 
         <div class="container">
@@ -29,4 +28,3 @@
     </ion-card-header> 
   </ion-card>
 </ion-content>
-<app-custom-footer></app-custom-footer>

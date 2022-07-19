@@ -1,3 +1,4 @@
+import { CrearProductoComponent } from './stock/crear-producto/crear-producto.component';
 import { StockComponent } from './stock/stock.component';
 import { RegistrarClienteComponent } from './clientes/registrar-cliente/registrar-cliente.component';
 import { ConsultarPedidoClienteComponent } from './pedidos-cliente/consultar-pedido-cliente/consultar-pedido-cliente.component';
@@ -44,7 +45,8 @@ import { MateriaModalComponent } from './proveedores/realizar-pedido-proveedor/m
    CustomHeaderComponent, RealizarPedidoProveedorComponent, CartModalPage, PedidosComponent, ConsultarPedidoComponent,
    ConsultarProveedorComponent, EmpleadosComponent, RegistrarEmpleadoComponent, ConsultarEmpleadoComponent, CrearProveedorComponent,
    CrearMateriaComponent, ClientesComponent, RealizarPedidoClienteComponent, PedidosClienteComponent, CustomFooterComponent,
-    MateriaModalComponent, ConsultarClienteComponent, ConsultarPedidoClienteComponent, RegistrarClienteComponent, StockComponent],
+    MateriaModalComponent, ConsultarClienteComponent, ConsultarPedidoClienteComponent, RegistrarClienteComponent, StockComponent,
+  CrearProductoComponent],
   entryComponents: [],
   imports: [BrowserModule, CommonModule, IonicModule.forRoot(), AppRoutingModule,
      RouterModule, FormsModule, ReactiveFormsModule,

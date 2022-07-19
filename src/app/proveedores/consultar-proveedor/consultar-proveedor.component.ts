@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Proveedores } from './../../models/proveedores';
 import { Component, OnInit } from '@angular/core';
 import { Pedidos } from 'src/app/models/pedidos';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-consultar-proveedor',
@@ -16,28 +17,16 @@ export class ConsultarProveedorComponent implements OnInit {
   proveedor: Proveedores;
   pedidos: Pedidos[] = [];
 
-  constructor(private router: Router, private db: FirestoreService, private toast: InteractionService) { }
+  constructor(private router: Router, private db: FirestoreService, private toast: InteractionService, private modalController: ModalController) { }
 
   async ngOnInit() {
     this.nombrePag = "Consultar Proveedor";
     this.proveedor = JSON.parse(localStorage.getItem("proveedor"));
-/*     await this.db.getCollection<Pedidos>("Pedidos").subscribe(res => {
-      res.forEach(element => {
-        if (element.Nombre == this.proveedor.Nombre)
-          this.pedidos.push(element);
-      })
-      this.pedidos.sort((a,b) => {
-        if(a.fecha < b.fecha)
-          return 1
-        if(a.fecha > b.fecha)
-          return -1
-        return 0
-      })
-    }) */
   }
 
   pedido(){
-    this.router.navigateByUrl("/realizarPedidoProveedor")
+    this.router.navigateByUrl("/realizarPedidoProveedor");
+    this.modalController.dismiss();
   }
 
   async borrarProveedor(){

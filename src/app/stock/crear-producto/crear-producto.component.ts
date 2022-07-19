@@ -1,14 +1,16 @@
-import { InteractionService } from './../../../services/interaction.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { Primas } from 'src/app/models/primas';
 import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { InteractionService } from 'src/app/services/interaction.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-crear-materia',
-  templateUrl: './crear-materia.component.html',
-  styleUrls: ['./crear-materia.component.scss'],
+  selector: 'app-crear-producto',
+  templateUrl: './crear-producto.component.html',
+  styleUrls: ['./crear-producto.component.scss'],
 })
-export class CrearMateriaComponent implements OnInit {
+export class CrearProductoComponent implements OnInit {
+
 
   nombrePag: string;
   materia = {
@@ -17,19 +19,17 @@ export class CrearMateriaComponent implements OnInit {
     Foto: "",
     Cantidad: 1,
     Descripcion: "",
-    Categoria: ""
+    Categoria: "", 
+    Restante: 0,
+    Aviso: 0
   }
-
   image: any;
   previsualizacion: string;
-
-  proveedor: any;
 
   constructor(private db: FirestoreService, private toast: InteractionService, private router: Router) { }
 
   ngOnInit() {
-    this.nombrePag = "Crear Materia";
-    this.proveedor = JSON.parse(localStorage.getItem("proveedor"));
+    this.nombrePag = "Crear Producto"
   }
 
   capturarImagen(event: any){
@@ -44,9 +44,9 @@ export class CrearMateriaComponent implements OnInit {
   }
 
   crearProducto(){
-    this.db.createDocWithImage(this.materia, "Proveedores/"+ this.proveedor.Email + "/Productos", this.db.createId()).then(() => {
+    this.db.createDocWithImage(this.materia, "Productos", this.db.createId()).then(() => {
       this.toast.presentToast("Producto añadido Satisfactoriamente");
-      this.router.navigateByUrl("/realizarPedidoProveedor")
+      this.router.navigateByUrl("/stock")
     })
   }
 

@@ -29,4 +29,8 @@ export class PedidosClienteComponent implements OnInit {
     this.router.navigateByUrl("/consultarPedidoCliente")
   }
 
+  marcarEntregado(pedido: Pedidos){
+    this.db.entregarPedido("PedidosCliente", pedido.id);
+  }
+
 }

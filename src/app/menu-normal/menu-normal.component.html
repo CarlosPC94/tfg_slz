@@ -5,6 +5,21 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
+    <ion-item id="cuenta">
+      <ion-grid>
+        <ion-row>
+          <img id="perfil" src="{{user.photoURL}}">
+        </ion-row>
+        <ion-row id="datos">
+          <ion-card-subtitle>{{user.email}}</ion-card-subtitle>
+          
+        </ion-row>
+        <ion-row>
+          <ion-label *ngIf="user.email == 'admin@admin.com'" >Administrador <ion-icon name="star-outline"></ion-icon>
+          </ion-label>
+        </ion-row>
+      </ion-grid>      
+    </ion-item>
     <ion-list>
       <ion-item href="/proveedores"><ion-icon name="newspaper-outline"></ion-icon> Proveedores </ion-item>
       <ion-item href="/pedidos"><ion-icon name="cart-outline"></ion-icon> Pedidos Proveedores </ion-item>

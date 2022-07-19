@@ -24,9 +24,9 @@ export class PedidosComponent implements OnInit {
     this.db.getCollection<Pedidos>("Pedidos").subscribe((res) => {
       res.sort((a,b) => {
         if(a.fecha < b.fecha)
-          return -1;
+          return 1;
         if(a.fecha > b.fecha)
-          return 1
+          return -1
         return 0;
       })
       this.pedidos = res;

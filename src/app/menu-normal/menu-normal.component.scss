@@ -9,6 +9,23 @@ img{
     
 }
 
+#perfil {
+    height: 80px;
+    width: auto;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#datos {
+    margin-top: 20px;
+}
+
+#cuenta {
+    margin-top: 0px;
+    --background: linear-gradient(197deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 13.5%, rgb(215, 206, 191) 33.33%, rgb(222, 190, 145) 100%) !important;
+}
+
 ion-toolbar{
    text-align: center; 
 }

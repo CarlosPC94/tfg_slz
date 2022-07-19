@@ -5,4 +5,5 @@ export interface Proveedores {
     Categoria: string
     Ciudad: string
     Direccion: string
+    Web: string
 }

@@ -58,6 +58,8 @@
       </ion-item>
     </ion-list> 
     <div id="container">
+      <ion-label>Observaciones: </ion-label>
+      <ion-textarea placeholder="Observaciones relacionadas con el pedido..."  [(ngModel)]="observaciones"></ion-textarea>
       <ion-label>Selecciona la fecha de recogida: </ion-label>
       <input type="date" (change)="verFecha($event)">
     </div>

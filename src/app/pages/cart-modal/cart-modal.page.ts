@@ -16,6 +16,7 @@ export class CartModalPage implements OnInit {
 
   cart: CartProducts[] = [];
   fecha: string;
+  observaciones: string;
 
   constructor(private cartService: CartService, private modalController: ModalController, private db: FirestoreService,
      private datePipe: DatePipe, private toast: InteractionService, private router: Router) { }
@@ -55,7 +56,8 @@ export class CartModalPage implements OnInit {
         fecha: this.datePipe.transform(date, 'dd-MM-yyyy'),
         Total: this.getTotal(),
         id: id,
-        Recogida: this.fecha
+        Recogida: this.fecha,
+        Observaciones: this.observaciones
       }
       this.db.createDoc(data, "PedidosCliente", id).then(() => {
         for(var i = 0; i < this.cart.length; i++){
@@ -64,7 +66,7 @@ export class CartModalPage implements OnInit {
         this.cart = []
         this.toast.presentToast("Pedido para el cliente " + cliente.Nombre + " realizado correctamente.");
         this.close();
-        this.router.navigateByUrl("/clientes")
+        this.router.navigateByUrl("/pedidosCliente")
       })
     } else {
       let proveedor = JSON.parse(localStorage.getItem("proveedor"));

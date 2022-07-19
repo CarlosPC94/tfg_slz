@@ -18,6 +18,11 @@
       <ion-select-option value="Dulces ind.">Dulces ind.</ion-select-option>
       <ion-select-option value="Lácteos">Lácteos</ion-select-option>
     </ion-select>
+    <ion-select placeholder="Ordenar" (ionChange)="categoria($event)">
+      <ion-select-option value="Precio Ascendente">Precio Ascendente</ion-select-option>
+      <ion-select-option value="Precio Descendente">Precio Descendente</ion-select-option>
+      <ion-select-option value="Populares">Populares</ion-select-option>
+    </ion-select>
     <ion-searchbar (ionChange)="buscar($event)"></ion-searchbar>
   </ion-item>
 
@@ -35,8 +40,8 @@
   </ion-card>
   <ion-grid>
     <ion-row>
-      <ion-col col-2 *ngFor="let producto of productos">
-        <ion-card> 
+      <ion-col size="4" *ngFor="let producto of productos">
+        <ion-card (click)="abrirProducto(producto)"> 
           <ion-card-header>
             <img src="{{producto.Foto}}" />
             <ion-card-subtitle id="subtitulo">{{producto.Nombre}}</ion-card-subtitle>

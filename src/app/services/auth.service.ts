@@ -21,7 +21,8 @@ export class AuthService {
     Movil: '',
     Apellidos: '',
     Registrado: true,
-    Baneado: false
+    Baneado: false,
+    Tipo: 'Cliente'
   }
 
   async register(email: string, password: string, nick: string, movil: string, apellidos: string, image: any){

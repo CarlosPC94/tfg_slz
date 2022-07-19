@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { CartModalPage } from 'src/app/pages/cart-modal/cart-modal.page';
+import { MateriaModalComponent } from 'src/app/proveedores/realizar-pedido-proveedor/materia-modal/materia-modal.component';
 
 @Component({
   selector: 'app-realizar-pedido-cliente',
@@ -59,6 +60,15 @@ export class RealizarPedidoClienteComponent implements OnInit {
         }
       })
     }
+  }
+
+  async abrirProducto(producto: Primas){
+    localStorage.setItem("producto", JSON.stringify(producto));
+    let modal = await this.modalController.create({
+      component: MateriaModalComponent,
+      cssClass: 'materia-modal'
+    })
+    modal.present();
   }
 
   categoria(event: any){

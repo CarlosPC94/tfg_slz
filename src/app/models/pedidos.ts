@@ -1,8 +1,9 @@
 export interface Pedidos {
-    Nombre: String
+    Nombre: string
     fecha: string
     Entregado: boolean
     Total: number
     id: string
+    observaciones: string
 }
     

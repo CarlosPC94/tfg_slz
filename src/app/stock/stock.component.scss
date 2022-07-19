@@ -1,5 +1,6 @@
 ion-searchbar{
     margin-right: 20px;
+    width: 300px;
 }
 
 h4 {
@@ -44,4 +45,14 @@ ion-button{
 
 .container {
     width: 100%;
+}
+
+ion-select{
+    width: 200px;
+}
+
+#filtros {
+    text-align: center;
+    font-family: roboto-thin;
+    color: #b3702e;
 }
