@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { ConsultarClienteComponent } from './consultar-cliente/consultar-cliente.component';
 import { Router } from '@angular/router';
 import { FirestoreService } from './../services/firestore.service';
@@ -20,8 +21,10 @@ export class ClientesComponent implements OnInit {
   ngOnInit() {
     this.nombrePag = "Clientes"
     this.db.getCollection<Clientes>("Users").subscribe(res => {
-      this.clientes = res;
-      console.log(this.clientes);
+      res.forEach(element => {
+        if (element.Tipo == "Cliente")  
+          this.clientes.push(element);
+      })
     })
     }
 

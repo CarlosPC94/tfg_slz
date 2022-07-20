@@ -18,6 +18,7 @@
           <ion-select-option value="Todos" >Todos</ion-select-option>
           <ion-select-option *ngFor="let item of proveedores" value="{{item.Nombre}}" >{{item.Nombre}}</ion-select-option>
         </ion-select>
+        <input id="fecha" type="date">
       </ion-item>
     </ion-list-header>
     <ion-item *ngFor="let pedido of pedidos; let i = index" (click)="consultarPedido(pedido, i)">

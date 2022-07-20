@@ -17,12 +17,17 @@ export class CartModalPage implements OnInit {
   cart: CartProducts[] = [];
   fecha: string;
   observaciones: string;
+  pagina: boolean;
 
   constructor(private cartService: CartService, private modalController: ModalController, private db: FirestoreService,
      private datePipe: DatePipe, private toast: InteractionService, private router: Router) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
+    if(document.location.href.includes("pedidoCliente") == true)
+      this.pagina = true;
+    else
+      this.pagina = false;
   }
 
   decreaseCartItem(product) {

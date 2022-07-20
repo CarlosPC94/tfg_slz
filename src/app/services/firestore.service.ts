@@ -101,5 +101,11 @@ export class FirestoreService {
     })
   }
 
+  aumentarCantidadProducto(id: string, cantidad: number){
+    this.database.collection("Productos").doc(id).update({Restante: cantidad}).then(() => {
+      this.toast.presentToast("Cantidad modificada correctamente.")
+    })
+  }
+
 
 }

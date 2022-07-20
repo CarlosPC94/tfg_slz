@@ -42,9 +42,9 @@
         <ion-label>Cantidad Restante:</ion-label>
         <ion-grid>
           <ion-row>
-            <ion-column><ion-button fill="outline"><ion-icon name="remove-outline"></ion-icon></ion-button></ion-column>
-            <ion-column><ion-input type="text" placeholder="{{producto.Restante}}"></ion-input></ion-column>
-            <ion-column><ion-button fill="outline"><ion-icon name="add-outline"></ion-icon></ion-button></ion-column>
+            <ion-col><ion-button (click)="bajarCantidad(producto)" fill="outline"><ion-icon name="remove-outline" ></ion-icon></ion-button></ion-col>
+            <ion-col><ion-input (ionChange)="modificarCantidad($event, producto)" type="text" placeholder="{{producto.Restante}}"></ion-input></ion-col>
+            <ion-col><ion-button (click)="aumentarCantidad(producto)" fill="outline"><ion-icon name="add-outline" ></ion-icon></ion-button></ion-col>
           </ion-row>
         </ion-grid>
         

@@ -18,6 +18,7 @@ h4 {
 
 ion-select{
     color: #bd7732;
+    width: 200px;
     margin-left: 5px;
 }
 
@@ -51,4 +52,9 @@ ion-modal {
         --background: transparent,
         height: 400px;
     }
+}
+
+#fecha{
+    color: #bd7732; 
+    border-color:  #bd7732; 
 }

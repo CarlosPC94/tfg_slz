@@ -7,4 +7,5 @@ export interface Primas {
     Categoria: string
     Restante: number
     Aviso: number
+    id: string
 }
